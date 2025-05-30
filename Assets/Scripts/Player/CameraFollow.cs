@@ -5,7 +5,7 @@ public class CameraFollowWithDeadzone : MonoBehaviour
     public Transform target;           // The player
     public float smoothTime = 0.3f;    // Smoothness of camera movement
 
-    public Vector2 deadzoneSize = new Vector2(2f, 1.5f); // Width & height of deadzone rectangle around camera center
+    public Vector2 deadzoneSize = new Vector2(1f, 0.56f); // Width & height of deadzone rectangle around camera center
 
     private Vector3 velocity = Vector3.zero;
 
