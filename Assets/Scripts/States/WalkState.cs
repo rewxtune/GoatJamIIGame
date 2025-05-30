@@ -1,9 +1,9 @@
 using UnityEngine;
-
 public class WalkState : State
 {
     private PlayerController player;
     private float speed = 3f;
+    private Vector2 direction;
 
     public WalkState(StateMachine stateMachine, PlayerController player) : base(stateMachine)
     {
@@ -12,7 +12,9 @@ public class WalkState : State
 
     public override void Tick()
     {
+        // Input only (called from Update)
         Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        direction = input.normalized;
 
         if (input == Vector2.zero)
         {
@@ -25,9 +27,12 @@ public class WalkState : State
             stateMachine.SetState(new AbilityState(stateMachine, player));
             return;
         }
+    }
 
-        // 2D Movement
-        Vector2 move = input.normalized * speed * Time.deltaTime;
-        player.transform.position += (Vector3)move;
+    public override void FixedTick()
+    {
+        // Physics movement (called from FixedUpdate)
+        Vector2 newPosition = player.rb.position + (direction * speed * Time.fixedDeltaTime);
+        player.rb.MovePosition(newPosition);
     }
 }

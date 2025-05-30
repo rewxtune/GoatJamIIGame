@@ -15,4 +15,9 @@ public class StateMachine : MonoBehaviour
     {
         currentState?.Tick();
     }
+
+    private void FixedUpdate()
+    {
+        currentState?.FixedTick();
+    }
 }
