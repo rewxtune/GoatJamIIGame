@@ -14,13 +14,13 @@ public class GameManager : MonoBehaviour
     void StartDay()
     {
         isDaytime = true;
-        // Kazý zamaný, enerji kazanýlýr
+        
     }
 
     void StartNight()
     {
         isDaytime = false;
-        // Fýrtýna baþlar, gemiye dönülmeli
+      
     }
 
     public void EndDay()
@@ -38,12 +38,12 @@ public class GameManager : MonoBehaviour
 
     void WinGame()
     {
-        // Oyunu kazanma sahnesi
+       
     }
 
     public void LoseGame()
     {
-        // Oyunu kaybetme sahnesi
+       
     }
 }
 
